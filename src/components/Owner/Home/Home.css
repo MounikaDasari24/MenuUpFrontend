@@ -1,0 +1,66 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .home-title {
+    font-family: 'Itim';
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #FF9A16;
+  }
+
+  .home-title b{
+    font-size: 48px;
+  }
+  
+  .home-description {
+    font-size: 18px;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .home-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .login {
+    background-color: #FF9A16;
+    border-style: none;
+  }
+
+  .login:hover{
+    border-style: solid;
+    border-color: #FF9A16;
+    color: #FF9A16;
+    background-color: #fff;
+  }
+  
+  .signup {
+    color: #FF9A16;
+    background-color: #fff;
+    border-style: solid;
+    border-color: #FF9A16;
+  }
+
+  .signup:hover{
+    background-color: #FF9A16;
+    border: none;
+    color: #fff;
+  }
+  
