@@ -15,7 +15,7 @@ const Cart = () => {
   const handlePlaceOrder = async () => {
     try {
       const { storeId } = cart[0]; // Assuming all items are from one store
-      const storeResponse = await axios.get(`http://localhost:5000/api/store/${storeId}`);
+      const storeResponse = await axios.get(`https://menuup.onrender.com/api/store/${storeId}`);
       const { upiId, storeName } = storeResponse.data;
   
       const totalAmount = getTotalPrice();
