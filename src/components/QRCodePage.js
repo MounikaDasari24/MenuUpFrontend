@@ -6,8 +6,8 @@ const QRCodePage = () => {
   const { storeId } = useParams(); // Get storeId from URL params
   const navigate = useNavigate();
 
-  const qrCodeUrl = `${window.location.origin}/customer-menu/${storeId}`;
-
+  const qrCodeUrl = `https://menuupfrontend.onrender.com/customer-menu/${storeId}`;
+  
   const downloadQRCode = () => {
     const canvas = document.getElementById('store-qr-code');
     const pngUrl = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
