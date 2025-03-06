@@ -12,7 +12,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/store/login', { email, password });
+      const response = await axios.post('https://menuup.onrender.com/api/store/login', { email, password });
   
       if (response.status === 200) {
         const { storeId } = response.data;
