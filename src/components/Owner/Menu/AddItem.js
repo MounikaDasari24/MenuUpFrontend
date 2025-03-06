@@ -65,8 +65,8 @@ function AddItem() {
 
   const handleDeleteItem = async (itemId) => {
     try {
-      console.log(`http://localhost:5000/api/store/${storeId}/menu/${itemId}`);
-      await axios.delete(`http://localhost:5000/api/store/${storeId}/menu/${itemId}`);
+      console.log(`https://menuup.onrender.com/api/store/${storeId}/menu/${itemId}`);
+      await axios.delete(`https://menuup.onrender.com/api/store/${storeId}/menu/${itemId}`);
       setMenuItems(menuItems.filter(item => item._id !== itemId));
       alert('Item deleted successfully!');
     } catch (error) {
