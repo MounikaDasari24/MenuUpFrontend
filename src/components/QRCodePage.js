@@ -4,6 +4,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 
 const QRCodePage = () => {
   const { storeId } = useParams(); // Get storeId from URL params
+  console.log('Scanned storeId:', storeId);
   const navigate = useNavigate();
 
   const qrCodeUrl = `https://menuupfrontend.onrender.com/customer-menu/${storeId}`;
