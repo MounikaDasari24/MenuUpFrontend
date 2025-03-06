@@ -17,7 +17,7 @@ function Signup() {
     e.preventDefault();
     try {
       console.log({ storeName, ownerName, email, password, phoneNo, upiId }); // Add this before axios.posts
-      const response = await axios.post('http://localhost:5000/api/store/register', {
+      const response = await axios.post('https://menuup.onrender.com//api/store/register', {
         storeName,
         ownerName,
         email,
