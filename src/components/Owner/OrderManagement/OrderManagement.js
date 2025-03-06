@@ -9,7 +9,7 @@ const OrderManagement = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/store/${storeId}/orders`);
+        const response = await axios.get(`https://menuup.onrender.com/api/store/${storeId}/orders`);
         setOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error.response ? error.response.data : error.message);
