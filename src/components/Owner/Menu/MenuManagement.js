@@ -13,7 +13,7 @@ function MenuManagement({ onClose, onAddItem }) {
     const newItem = { name: itemName, price: itemPrice };
     
     try {
-      const response = await axios.post(`http://localhost:5000/api/store/${localStorage.getItem('storeId')}/menu`, newItem);
+      const response = await axios.post(`https://menuup.onrender.com/api/store/${localStorage.getItem('storeId')}/menu`, newItem);
       onAddItem(response.data); // Pass the item added from backend response
       setItemName('');
       setItemPrice('');
