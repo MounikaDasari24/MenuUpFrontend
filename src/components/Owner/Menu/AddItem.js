@@ -42,7 +42,7 @@ function AddItem() {
         return;
       }
   
-      const response = await axios.post(`http://localhost:5000/api/store/${storeId}/menu`, newItem);
+      const response = await axios.post(`https://menuup.onrender.com/api/store/${storeId}/menu`, newItem);
   
       // Avoid duplicates by checking if the item is already in menuItems
       const itemExists = menuItems.some(item => item._id === response.data._id);
