@@ -14,6 +14,7 @@ const CustomerMenu = () => {
       try {
         console.log(`Fetching menu for store: ${storeId}`);
         const response = await axios.get(`https://menuup.onrender.com/api/store/${storeId}/menu`);
+        setMenuItems(response.data);
         console.log('Menu response:', response.data);
       } catch (error) {
         console.error('Error fetching menu:', error.response ? error.response.data : error.message);
