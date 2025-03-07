@@ -13,7 +13,6 @@ function AddItem() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        console.log(`Fetching menu for storeId: ${storeId}`);
         const response = await axios.get(`https://menuup.onrender.com/api/store/${storeId}/menu`);
         setMenuItems(response.data);
       } catch (error) {
