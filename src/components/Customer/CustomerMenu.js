@@ -16,6 +16,9 @@ const CustomerMenu = () => {
         const response = await axios.get(`https://menuup.onrender.com/api/store/${storeId}/menu`);
         setMenuItems(response.data);
         console.log('Menu response:', response.data);
+        if (response.data.length === 0) {
+  console.warn('No menu items found for this store.');
+}
       } catch (error) {
         console.error('Error fetching menu:', error.response ? error.response.data : error.message);
       }
