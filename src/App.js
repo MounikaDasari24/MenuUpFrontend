@@ -24,7 +24,6 @@ function App() {
         <Route path="/customer-menu/:storeId" element={<CustomerMenu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<OrderManagement />} /> 
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
