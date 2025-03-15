@@ -7,7 +7,7 @@ const QRCodePage = () => {
   console.log('Scanned storeId:', storeId);
   const navigate = useNavigate();
 
-  const qrCodeUrl = `https://menuupfrontend.onrender.com/customer-menu/${storeId}`;
+  const qrCodeUrl = `https://menuupfrontend.onrender.com/#/customer-menu/${storeId}`;
   console.log('Generated QR Code URL:', qrCodeUrl);
   
   const downloadQRCode = () => {
