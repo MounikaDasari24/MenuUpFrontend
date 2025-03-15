@@ -5,6 +5,7 @@ import './CustomerMenu.css';
 
 const CustomerMenu = () => {
   const { storeId } = useParams();
+  console.log("Store ID:", storeId);
   const navigate = useNavigate();
   const [menuItems, setMenuItems] = useState([]);
   const [cart, setCart] = useState([]);
