@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import MenuManagement from './components/Owner/Menu/MenuManagement';
 import QRCodePage from './components/QRCodePage';
 import CustomerMenu from './components/Customer/CustomerMenu';
@@ -24,6 +24,7 @@ function App() {
         <Route path="/customer-menu/:storeId" element={<CustomerMenu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<OrderManagement />} /> 
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
