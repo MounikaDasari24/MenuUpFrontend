@@ -14,14 +14,16 @@ function AddItem() {
     const fetchMenu = async () => {
       try {
         const response = await axios.get(`https://menuup.onrender.com/api/store/${storeId}/menu`);
-        setMenuItems(response.data);
+        const uniqueItems = response.data.filter(
+          (item, index, self) => index === self.findIndex(i => i._id === item._id)
+        );
+        setMenuItems(uniqueItems);
       } catch (error) {
         console.error('Error fetching menu:', error.response ? error.response.data : error.message);
       }
     };
 
     if (storeId) fetchMenu();
-    return () => setMenuItems([]);
   }, [storeId]);
 
   const handleOpenMenu = () => {
@@ -34,38 +36,29 @@ function AddItem() {
 
   const handleAddItem = async (newItem) => {
     try {
-      console.log('Store ID being sent:', storeId); // Debug log
-  
       if (!storeId) {
         alert('Store ID is missing! Please log in again.');
         return;
       }
-  
+
       const response = await axios.post(`https://menuup.onrender.com/api/store/${storeId}/menu`, newItem);
-  
-      // Avoid duplicates by checking if the item is already in menuItems
-      const itemExists = menuItems.some(item => item._id === response.data._id);
-      if (!itemExists) {
-        setMenuItems(prevItems => [...prevItems, response.data]);
-      }
-  
+
+      // Ensure item is not duplicated in the menuItems state
+      setMenuItems(prevItems => {
+        const itemExists = prevItems.some(item => item._id === response.data._id);
+        return itemExists ? prevItems : [...prevItems, response.data];
+      });
+
       handleCloseMenu();
     } catch (error) {
       console.error('Error adding menu item:', error.response ? error.response.data : error.message);
     }
   };
-  
-  // Clear menuItems when leaving the page
-  useEffect(() => {
-    return () => setMenuItems([]);
-  }, []);
-  
-  
 
   const handleDeleteItem = async (itemId) => {
     try {
       await axios.delete(`https://menuup.onrender.com/api/store/${storeId}/menu/${itemId}`);
-      setMenuItems(menuItems.filter(item => item._id !== itemId));
+      setMenuItems(prevItems => prevItems.filter(item => item._id !== itemId));
       alert('Item deleted successfully!');
     } catch (error) {
       console.error('Error deleting menu item:', error.response ? error.response.data : error.message);
